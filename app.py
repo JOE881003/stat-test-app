@@ -3,6 +3,7 @@ import numpy as np
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
+import matplotlib.font_manager as fm
 # ========= 頁面設定 =========
 st.set_page_config(
     page_title="統計檢定小工具 📊",
@@ -11,6 +12,9 @@ st.set_page_config(
 )
 
 # ========= 中文字型設定 =========
+font_path = "fonts/Noto_Sans_TC/NotoSansTC-VariableFont_wght.ttf"
+my_font = fm.FontProperties(fname=font_path)
+
 rcParams['font.family'] = 'Microsoft JhengHei'
 rcParams['axes.unicode_minus'] = False
 
@@ -63,11 +67,11 @@ if test_type == "Z 檢定":
     x = np.linspace(-4, 4, 500)
     y = stats.norm.pdf(x, 0, 1)
     fig, ax = plt.subplots()
-    ax.plot(x, y, label="Z 檢定 分布曲線")
+    ax.plot(x, y, label="Z 檢定 分布曲線", fontproperties=my_font)
     ax.axvline(z, color="red", linestyle="--", label=f"Z={z:.2f}")
-    ax.axvline(critical, color="blue", linestyle="--", label=f"正向臨界值={critical:.2f}")
-    ax.axvline(-critical, color="blue", linestyle="--", label=f"負向臨界值={-critical:.2f}")
-    ax.set_title("Z 檢定 分布與檢定結果")
+    ax.axvline(critical, color="blue", linestyle="--", label=f"正向臨界值={critical:.2f}", fontproperties=my_font)
+    ax.axvline(-critical, color="blue", linestyle="--", label=f"負向臨界值={-critical:.2f}", fontproperties=my_font)
+    ax.set_title("Z 檢定 分布與檢定結果", fontproperties=my_font)
     ax.legend()
     st.pyplot(fig)
 
@@ -95,11 +99,11 @@ elif test_type == "t 檢定":
     x = np.linspace(-4, 4, 500)
     y = stats.t.pdf(x, df=n-1)
     fig, ax = plt.subplots()
-    ax.plot(x, y, label="t 分布曲線")
+    ax.plot(x, y, label="t 分布曲線", fontproperties=my_font)
     ax.axvline(t, color="red", linestyle="--", label=f"t={t:.2f}")
-    ax.axvline(critical, color="blue", linestyle="--", label=f"正向臨界值={critical:.2f}")
-    ax.axvline(-critical, color="blue", linestyle="--", label=f"負向臨界值={-critical:.2f}")
-    ax.set_title("t 檢定 分布與檢定結果")
+    ax.axvline(critical, color="blue", linestyle="--", label=f"正向臨界值={critical:.2f}", fontproperties=my_font)
+    ax.axvline(-critical, color="blue", linestyle="--", label=f"負向臨界值={-critical:.2f}", fontproperties=my_font)
+    ax.set_title("t 檢定 分布與檢定結果", fontproperties=my_font)
     ax.legend()
     st.pyplot(fig)
 
