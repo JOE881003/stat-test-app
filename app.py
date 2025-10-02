@@ -15,8 +15,10 @@ st.set_page_config(
 font_path = "fonts/Noto_Sans_TC/NotoSansTC-VariableFont_wght.ttf"
 my_font = fm.FontProperties(fname=font_path)
 
-rcParams['font.family'] = 'Microsoft JhengHei'
+# 全域設定：讓 matplotlib 預設用 Noto Sans
+rcParams['font.family'] = my_font.get_name()
 rcParams['axes.unicode_minus'] = False
+
 
 st.title("假設檢定小工具 (Z / t / 卡方 / F 檢定)")
 
