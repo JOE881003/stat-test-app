@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # ========= 中文字型設定 =========
-font_path = "font/Noto_Sans_TC/NotoSansTC-VariableFont_wght.ttf"
+font_path = "font/Noto_Sans_TC/NotoSansTC-Regular.ttf"
 my_font = fm.FontProperties(fname=font_path)
 
 # 全域設定：讓 matplotlib 預設用 Noto Sans
