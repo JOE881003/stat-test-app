@@ -13,12 +13,12 @@
 - 附加「統計小抄」說明各檢定的使用時機
 
 ## 📂 專案結構
-
+```bash
 stat_test_app/
 │── app.py
 │── requirements.txt
 │── README.md
-
+```
 ## ▶️ 執行方法
 ```bash
 pip install -r requirements.txt
