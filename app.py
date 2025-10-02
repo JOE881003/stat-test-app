@@ -73,7 +73,7 @@ if test_type == "Z 檢定":
     ax.axvline(z, color="red", linestyle="--", label=f"Z={z:.2f}")
     ax.axvline(critical, color="blue", linestyle="--", label=f"正向臨界值={critical:.2f}")
     ax.axvline(-critical, color="blue", linestyle="--", label=f"負向臨界值={-critical:.2f}")
-    ax.set_title("Z 檢定 分布與檢定結果", fontproperties=my_font)
+    ax.set_title("Z 檢定 分布與檢定結果")
     ax.legend()
     st.pyplot(fig)
 
@@ -105,7 +105,7 @@ elif test_type == "t 檢定":
     ax.axvline(t, color="red", linestyle="--", label=f"t={t:.2f}")
     ax.axvline(critical, color="blue", linestyle="--", label=f"正向臨界值={critical:.2f}")
     ax.axvline(-critical, color="blue", linestyle="--", label=f"負向臨界值={-critical:.2f}")
-    ax.set_title("t 檢定 分布與檢定結果", fontproperties=my_font)
+    ax.set_title("t 檢定 分布與檢定結果")
     ax.legend()
     st.pyplot(fig)
 
