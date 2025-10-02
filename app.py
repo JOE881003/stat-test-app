@@ -4,6 +4,7 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import matplotlib.font_manager as fm
+import os
 # ========= 頁面設定 =========
 st.set_page_config(
     page_title="統計檢定小工具 📊",
@@ -13,14 +14,20 @@ st.set_page_config(
 
 # ========= 中文字型設定 =========
 font_path = "font/Noto_Sans_TC/NotoSansTC-Regular.ttf"
-my_font = fm.FontProperties(fname=font_path)
 
-# 全域設定：讓 matplotlib 預設用 Noto Sans
-rcParams['font.family'] = my_font.get_name()
+if os.path.exists(font_path):
+    try:
+        my_font = fm.FontProperties(fname=font_path)
+        rcParams['font.family'] = my_font.get_name()
+        st.write(f"✅ 使用字型：{my_font.get_name()}")
+    except Exception as e:
+        rcParams['font.family'] = 'sans-serif'
+        st.write("⚠️ 找到字型檔，但載入失敗，改用英文", e)
+else:
+    rcParams['font.family'] = 'sans-serif'
+    st.write("⚠️ 沒有中文字型檔，改用英文")
+
 rcParams['axes.unicode_minus'] = False
-
-
-st.title("假設檢定小工具 (Z / t / 卡方 / F 檢定)")
 
 # ========== 選擇檢定類型 ==========
 test_type = st.selectbox("選擇檢定類型", ["Z 檢定", "t 檢定", "卡方檢定 (Chi-square)", "F 檢定 (變異數比)"])
